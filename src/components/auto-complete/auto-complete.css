@@ -1,0 +1,6 @@
+.blue {
+  background: blue;
+}
+.input_item:hover {
+  background: grey;
+}

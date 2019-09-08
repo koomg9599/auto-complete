@@ -2,11 +2,13 @@ import React from 'react'
 import AutoComplete from './components/auto-complete'
 
 function App() {
-  const itemList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  const itemList = ['1번', '2번', '3번', '4번', '5번', '6번', '7번', '8번', '9번', '10번']
 
   return (
     <div className="App">
-      <AutoComplete itemList={itemList} />
+      <div>
+        <AutoComplete itemList={itemList} />
+      </div>
     </div>
   )
 }
