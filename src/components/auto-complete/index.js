@@ -6,7 +6,7 @@ const AutoComplete = ({ itemList }) => {
   const { inputEvent, items, index, viewFlag, handleClick, handleBlur } = useAutoComplete(itemList)
 
   return (
-    <div className="input_container" style={{ background: 'blue' }} onBlur={handleBlur}>
+    <div className="input_container" onBlur={handleBlur}>
       <input className="input_box" {...inputEvent} />
       <ul>
         {viewFlag &&
