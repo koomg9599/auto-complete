@@ -18,7 +18,7 @@ const useAutoComplete = itemList => {
         setViewFlag(true)
       }
       if (value === '') {
-        setItems(totalItems)
+        // setItems(totalItems)
         setIndex(null)
       }
       setValue(target.value)
@@ -29,14 +29,14 @@ const useAutoComplete = itemList => {
       switch (key) {
         case 'ArrowUp':
           if (index > 0) {
-            setIndex(index - 1)
+            setIndex((index - 1) % items.length)
           }
           break
         case 'ArrowDown':
           if (index === null) {
             setIndex(0)
-          } else if (index < items.length - 1) {
-            setIndex(index + 1)
+          } else {
+            setIndex((index + 1) % items.length)
           }
           break
         case 'Enter':
