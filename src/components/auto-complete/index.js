@@ -9,8 +9,8 @@ const AutoComplete = ({ itemList }) => {
     <div className="auto-complete">
       <div className="search-bx">
         <div className="search-group">
-          <div className="input_container" onBlur={handleBlur}>
-            <input className="input_box" {...inputEvent} />
+          <div className="input_container">
+            <input className="input_box" {...inputEvent} onBlur={handleBlur} />
             {viewFlag && (
               <div className="search-result clearfix">
                 <div className="result-list-box">
@@ -21,12 +21,11 @@ const AutoComplete = ({ itemList }) => {
                     {items.map((item, idx) => (
                       <li
                         key={item}
-                        className={`input_item ${idx === index ? 'blue' : ''}`}
+                        className={`input_item ${idx === index ? 'keyboard-item' : ''}`}
                         onClick={() => {
                           handleClick(item)
                         }}
                       >
-                        <span className="search-badge number">사건번호</span>
                         <div className="result-txt number-txt">{item}</div>
                       </li>
                     ))}

@@ -1,5 +1,5 @@
-.blue {
-  background: blue;
+.keyboard-item {
+  background: #1e47c2;
 }
 .input_item:hover {
   background: grey;
@@ -63,7 +63,7 @@ button.btn-search {
 
 .search-result {
   position: absolute;
-  width: 100%;
+  width: 95%;
   background: #f7f8fa;
   box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.2);
 }
@@ -75,7 +75,8 @@ button.btn-search {
 .search-result .result-list-box {
   float: left;
   background: #fff;
-  width: calc(100% - 11rem);
+  /* width: calc(100% - 11rem); */
+  width: 99%;
   height: 22rem;
   overflow-y: auto;
   border-left: 1px solid #f4f4f4;
@@ -89,6 +90,10 @@ button.btn-search {
   color: #1e47c2;
   font-weight: 500;
 }
+.result-list-box ul {
+  list-style: none;
+  padding: 0px;
+}
 .result-list-box ul li {
   position: relative;
   border-bottom: 1px solid #f4f4f4;
@@ -100,87 +105,9 @@ button.btn-search {
   padding: 19px 12px 16px 20px;
   background-color: #eee;
 }
-.result-list-box ul li .search-badge {
-  position: absolute;
-  top: 16px;
-  padding: 4px 4px 3px 4px;
-  font-size: 10px;
-  color: #fff;
-  font-weight: 200;
-}
-.result-list-box ul li .search-badge.court {
-  background: #e94567;
-}
-.result-list-box ul li .search-badge.region {
-  background: #395198;
-}
-.result-list-box ul li .search-badge.number {
-  background: #4b3998;
-}
-.result-list-box ul li .result-txt {
-  padding-left: 32px;
-}
-.result-list-box ul li .result-txt.number-txt {
-  padding-left: 51px;
-}
-
 .result-type ul li {
   display: block;
   padding-bottom: 16px;
-}
-
-.radio {
-  position: relative;
-  display: inline-block;
-  min-height: 20px;
-  padding-left: 32px;
-  line-height: 20px;
-}
-.radio input[type='radio'] {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  opacity: 0;
-  margin-top: -10px;
-}
-.radio input[type='radio'] + label {
-  font-size: 15px;
-  line-height: 21px;
-}
-.radio input[type='radio'] + label span {
-  display: inline-block;
-  font-size: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  border: 1.5px solid #c1c9da;
-  border-radius: 50%;
-  box-sizing: border-box;
-}
-.radio input[type='radio'] + label span:after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  /* background: url(../../../src/components/assets/images/radio-check.png) no-repeat center center; */
-  background-size: 13px 9px;
-  margin: 0 0;
-  transition: all 0.15s ease;
-}
-.radio input[type='radio']:checked + label span {
-  border: 1.5px solid #122f6f;
-}
-.radio input[type='radio']:checked + label span:after {
-  width: 13px;
-  height: 9px;
-  margin: -4px 0 0 -6px;
 }
 
 input.form-control {

@@ -11,17 +11,26 @@ const useAutoComplete = itemList => {
     setValue(item)
     setViewFlag(false)
   }
+  function windowInvisible() {
+    setViewFlag(false)
+    setIndex(null)
+    setItems([])
+  }
   const inputEvent = {
     value: value,
     onChange: ({ target }) => {
+      const nextValue = target.value
       if (!viewFlag) {
         setViewFlag(true)
+      } else if (viewFlag && !nextValue) {
+        windowInvisible()
       }
       if (value === '') {
-        // setItems(totalItems)
+        setItems(totalItems)
         setIndex(null)
       }
-      setValue(target.value)
+      setValue(nextValue)
+
       const nextItems = totalItems.filter(item => item.includes(target.value))
       setItems(nextItems)
     },
@@ -41,25 +50,20 @@ const useAutoComplete = itemList => {
           break
         case 'Enter':
           setValue(items[index])
-          setViewFlag(false)
-          setIndex(null)
+          windowInvisible()
           break
         case 'Escape':
-          setViewFlag(false)
-          setIndex(null)
-          setItems([])
+          windowInvisible()
           break
         default:
           break
       }
     },
     onClick: () => {
-      if (!viewFlag) {
-        setViewFlag(true)
-      }
       if (value === '') {
-        setItems(totalItems)
-        setIndex(null)
+        windowInvisible()
+      } else if (!viewFlag) {
+        setViewFlag(true)
       }
       setValue(value)
       const nextItems = totalItems.filter(item => item.includes(value))
@@ -67,9 +71,7 @@ const useAutoComplete = itemList => {
     },
   }
   const handleBlur = e => {
-    // for (let a in e) {
-    //   console.log(e[a])
-    // }
+    //windowInvisible()
   }
   return { inputEvent, items, index, viewFlag, handleClick, handleBlur }
 }
