@@ -71,7 +71,7 @@ const useAutoComplete = itemList => {
     },
   }
   const handleBlur = e => {
-    //windowInvisible()
+    windowInvisible()
   }
   return { inputEvent, items, index, viewFlag, handleClick, handleBlur }
 }

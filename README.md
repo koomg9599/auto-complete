@@ -2,4 +2,4 @@
 
 아직 미완성...
 
-![img](./demo/demo.gif)
+![img](./demo/demo02.gif)
