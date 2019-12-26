@@ -70,10 +70,13 @@ const useAutoComplete = itemList => {
       setItems(nextItems)
     },
   }
-  const handleBlur = e => {
-    windowInvisible()
+  const windowCloseHandler = e => {
+    if (e.target.className !== 'input_item') {
+      windowInvisible()
+    }
   }
-  return { inputEvent, items, index, viewFlag, handleClick, handleBlur }
+
+  return { inputEvent, items, index, viewFlag, handleClick, windowCloseHandler }
 }
 
 export default useAutoComplete
