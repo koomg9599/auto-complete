@@ -2,34 +2,34 @@ import { useState } from 'react'
 
 const useAutoComplete = itemList => {
   const totalItems = itemList
-  const [value, setValue] = useState('')
+  const [search, setSearch] = useState('')
   const [items, setItems] = useState([])
   const [index, setIndex] = useState(null)
   const [viewFlag, setViewFlag] = useState(false)
 
   const handleClick = item => {
-    setValue(item)
+    setSearch(item)
     setViewFlag(false)
   }
-  function windowInvisible() {
+  function closeWindow() {
     setViewFlag(false)
     setIndex(null)
     setItems([])
   }
   const inputEvent = {
-    value: value,
+    value: search,
     onChange: ({ target }) => {
-      const nextValue = target.value
+      const nextSearch = target.value
       if (!viewFlag) {
         setViewFlag(true)
-      } else if (viewFlag && !nextValue) {
-        windowInvisible()
+      } else if (viewFlag && !nextSearch) {
+        closeWindow()
       }
       if (value === '') {
         setItems(totalItems)
         setIndex(null)
       }
-      setValue(nextValue)
+      setSearch(nextValue)
 
       const nextItems = totalItems.filter(item => item.includes(target.value))
       setItems(nextItems)
@@ -49,34 +49,35 @@ const useAutoComplete = itemList => {
           }
           break
         case 'Enter':
-          setValue(items[index])
-          windowInvisible()
+          setSearch(items[index])
+          closeWindow()
           break
         case 'Escape':
-          windowInvisible()
+          closeWindow()
           break
         default:
           break
       }
     },
     onClick: () => {
-      if (value === '') {
-        windowInvisible()
+      if (search === '') {
+        closeWindow()
       } else if (!viewFlag) {
         setViewFlag(true)
       }
-      setValue(value)
+      setSearch(search)
       const nextItems = totalItems.filter(item => item.includes(value))
       setItems(nextItems)
     },
   }
-  const windowCloseHandler = e => {
-    if (e.target.className !== 'input_item') {
-      windowInvisible()
+  const handleClickOthers = e => {
+    const { className } = e.target
+    if (className !== 'input_item' || className !== 'input_box') {
+      closeWindow()
     }
   }
 
-  return { inputEvent, items, index, viewFlag, handleClick, windowCloseHandler }
+  return { inputEvent, items, index, viewFlag, handleClick, handleClickOthers }
 }
 
 export default useAutoComplete

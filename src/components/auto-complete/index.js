@@ -3,12 +3,12 @@ import useAutoComplete from '../../hooks/use-auto-complete'
 import './auto-complete.css'
 
 const AutoComplete = ({ itemList }) => {
-  const { inputEvent, items, index, viewFlag, handleClick, windowCloseHandler } = useAutoComplete(
+  const { inputEvent, items, index, viewFlag, handleClick, closeWindowHandler } = useAutoComplete(
     itemList,
   )
 
   useEffect(() => {
-    window.addEventListener('click', windowCloseHandler)
+    window.addEventListener('click', handleClickOthers)
   }, [])
   return (
     <div className="auto-complete search-bx">
