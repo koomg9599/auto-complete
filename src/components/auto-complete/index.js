@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import useAutoComplete from '../../hooks/use-auto-complete'
-import './auto-complete.css'
+import './style.css'
 
 const AutoComplete = ({ itemList }) => {
-  const { inputEvent, items, index, viewFlag, handleClick, closeWindowHandler } = useAutoComplete(
+  const { inputEvent, items, index, viewFlag, handleClick, handleClickOthers } = useAutoComplete(
     itemList,
   )
 
