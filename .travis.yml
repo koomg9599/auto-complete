@@ -5,8 +5,8 @@ cache:
 addons:
   chrome: stable
 before_install:
-  - yarn add @lhci/cli@0.4.x
+  - yarn global add @lhci/cli@0.4.x
 script:
   - yarn install
-  - yarn build
+  - yarn run build
   - lhci autorun
