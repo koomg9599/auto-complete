@@ -3,7 +3,7 @@ node_js: v12
 addons:
   chrome: stable
 before_install:
-  - yarn add -g @lhci/cli@0.4.x
+  - yarn add @lhci/cli@0.4.x
 script:
   - yarn install
   - yarn build
