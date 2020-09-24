@@ -9,4 +9,4 @@ before_install:
 script:
   - yarn
   - yarn build
-  - lhci autorun --rc-overrides.upload.target=temporary-public-storage --config=./lighthouserc.js
+  - lhci autorun --config=./lighthouserc.js
