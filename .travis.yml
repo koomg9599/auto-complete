@@ -1,12 +1,12 @@
 language: node_js
-node_js: v12
+node_js: v14
 cache:
   - node_modules
 addons:
   chrome: stable
 before_install:
-  - yarn add @lhci/cli@0.4.x
+  - yarn global add @lhci/cli@0.4.x
 script:
-  - yarn install
+  - yarn
   - yarn build
   - lhci autorun
