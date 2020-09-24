@@ -9,4 +9,4 @@ before_install:
 script:
   - yarn
   - yarn build
-  - lhci autorun --config=./lighthouserc.json
+  - lhci autorun --config=./lighthouserc.js
